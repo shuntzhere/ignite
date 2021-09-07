@@ -19,4 +19,4 @@ export const gamesReducer = (state=initialState,action) => {
         default:
             return {...state};
     }
-}
+} 
