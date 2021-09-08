@@ -4,6 +4,7 @@ import { Game } from '../components/Game';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { loadGames } from "../redux/actions/gamesAction";
+import { GameDetail } from '../components/GameDetail';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ export const Home = () => {
   const { popular, upcoming, newGames} = useSelector(state => state.games);
   return (
     <GameList>
+      <GameDetail />
       <h2>Popular Games</h2> 
       <Games>
         {popular.map(game => (

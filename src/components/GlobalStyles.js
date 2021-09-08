@@ -27,12 +27,12 @@ export const GlobalStyles = createGlobalStyle`
     h3 {
         font-size: 1.2rem;
         color: #333;
-        padding: 0.5rem;
+        padding: 0.5rem 0rem;
     }
     p {
         font-size: 1.1rem;
         line-height: 200%;
-        color: lightgrey;
+        color: grey;
     }
     a {
         text-decoration: none;
