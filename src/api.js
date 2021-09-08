@@ -35,3 +35,11 @@ const new_games = `games?key=345a2e9f121d4d21970e5bf081c5924e&dates=${previousYe
 export const popularGamesURL = () => `${baseURL}${popular_games}`;
 export const upcomingGamesURL = () => `${baseURL}${upcoming_games}`;
 export const newGamesURL = () => `${baseURL}${new_games}`;
+
+export const gameDetailsURL = (game_id) => `${baseURL}games/${game_id}?key=345a2e9f121d4d21970e5bf081c5924e&`;
+
+export const gameScreenShotsURL = (game_id) => `${baseURL}games/${game_id}/screenshots?key=345a2e9f121d4d21970e5bf081c5924e&`;
+
+// export const gameTrailerURL = (game_id) => `${baseURL}games/${game_id}/movies?key=345a2e9f121d4d21970e5bf081c5924e&`;
+
+// export const suggestedGamesURL = (game_id) => `${baseURL}games/${game_id}/suggested?key=345a2e9f121d4d21970e5bf081c5924e&`;
