@@ -7,21 +7,37 @@ import { useDispatch } from 'react-redux';
 import { loadDetails } from '../redux/actions/detailsAction';
 import { Link } from 'react-router-dom';
 import { smallerImage } from '../util';
+// import { useLocation } from 'react-router';
 
 export const Game = ({name, released, img, id}) => {
+    const updatedId = id.toString();
     //loading details
+    
+//   const location = useLocation();
+//   const pathId = location.pathname.split("/")[2];
+
     const dispatch = useDispatch()
     const loadDetailHandler = () => {
         document.body.style.overflow = "hidden";
         dispatch(loadDetails(id))
     }
     return (
-        <StyledGame onClick={loadDetailHandler}>
-            <Link to={`/game/${id}`}>
-                <h3>{name}</h3>
-                <p>{released}</p>
-                <img src={smallerImage(img,640)} alt={name} />
-            </Link>
+        <StyledGame 
+            layoutId={updatedId}
+            onClick={loadDetailHandler}
+        >   
+            {/* {!pathId &&  */}
+                <Link to={`/game/${id}`}>
+                    <motion.h3 layoutId={`title ${updatedId}`}>{name}</motion.h3>
+                    <motion.p layoutId={`released ${updatedId}`}>{released}</motion.p>
+                    <motion.img 
+                        layoutId={`img ${updatedId}`}
+                        src={smallerImage(img,640)} 
+                        alt={name} 
+                />
+                </Link>
+            {/* } */}
+            
         </StyledGame>
     );
 };

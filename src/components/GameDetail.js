@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { smallerImage } from '../util';
 
-export const GameDetail = () => {
+export const GameDetail = ({ pathId }) => {
     // for routes
     const history = useHistory();
     //exit detail 
@@ -16,6 +16,7 @@ export const GameDetail = () => {
         if(element.classList.contains('shadow')){
             document.body.style.overflow = 'auto';
             history.push('/');
+            
         }
     }
     //getting data
@@ -24,10 +25,10 @@ export const GameDetail = () => {
         <>
         {!isLoading && (
         <CardShadow className="shadow" onClick= {exitDetailHandler}>
-            <Detail>
+            <Detail layoutId={pathId}>
                 <Stats>
                     <div className="ratings">
-                        <h3>{gameData.name}</h3>
+                        <motion.h3 layoutId={`title ${pathId}`}>{gameData.name}</motion.h3>
                         <p>{gameData.rating}</p>
                     </div>
                     <Info>
@@ -40,16 +41,24 @@ export const GameDetail = () => {
                     </Info>
                 </Stats>
                 <Media>
-                    <img src={smallerImage(gameData.background_image,1280)} alt={gameData.background_image} />
+                    <motion.img 
+                        layoutId={`img ${pathId}`}
+                        src={smallerImage(gameData.background_image,1280)} 
+                        alt={gameData.background_image} 
+                    />
                 </Media>
                 <Description>
                     <p>{gameData.description_raw}</p>
                 </Description>
-                <div className="gallery">
-                    {screenshots.results.map(screenshots => (
-                        <img src={smallerImage(screenshots.image,1280)} key={screenshots.id}alt="" />
-                    ))}
-                </div>
+                <Gallery>
+                        {screenshots.results.map(screenshots => (
+                            <img 
+                                src={smallerImage(screenshots.image,1280)} 
+                                key={screenshots.id}
+                                alt="" 
+                            />
+                        ))}
+                </Gallery>
             </Detail>
         </CardShadow>
         )} 
@@ -120,4 +129,13 @@ const Media = styled(motion.div)`
 
 const Description = styled(motion.div)`
     margin: 5rem 0rem;
+`
+
+const Gallery = styled(motion.div)`
+    margin: auto;
+    align-items: center;
+    img {
+        /* width: 50vw; */
+        margin: 1rem 0;
+    }
 `
