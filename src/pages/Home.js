@@ -5,17 +5,24 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { loadGames } from "../redux/actions/gamesAction";
 import { GameDetail } from '../components/GameDetail';
+import { useLocation } from 'react-router-dom';
 
 export const Home = () => {
+  //get the current location
+  const location = useLocation();
+  const pathId = location.pathname.split("/")[2];
+
+  //fetching games
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadGames());
   }, [dispatch]);
   //getting data back
-  const { popular, upcoming, newGames} = useSelector(state => state.games);
+  const { popular, upcoming, newGames } = useSelector(state => state.games);
   return (
     <GameList>
-      <GameDetail />
+      {pathId && <GameDetail />}
+      {/* renders gamedetail when pathId exists */}
       <h2>Popular Games</h2> 
       <Games>
         {popular.map(game => (

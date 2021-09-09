@@ -37,7 +37,9 @@ export const GlobalStyles = createGlobalStyle`
     a {
         text-decoration: none;
         color: #333;
-        cursor: pointer;
+    }
+    img {
+        display: block;
     }
 `
 

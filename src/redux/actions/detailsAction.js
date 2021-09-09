@@ -1,8 +1,12 @@
 import axios from "axios";
-import { gameDetailsURL, gameScreenShotsURL, gameTrailerURL, suggestedGamesURL } from "../../api";
+import { gameDetailsURL, gameScreenShotsURL } from "../../api";
 
 
 export const loadDetails = (id) => async(dispatch) => {
+
+    dispatch({
+        type: "LOADING_DETAIL", 
+    })
     const gameDetails = await axios.get(gameDetailsURL(id));
     const screenShots = await axios.get(gameScreenShotsURL(id));
     // const gameTrailer = await axios.get(gameTrailerURL(id));
@@ -15,7 +19,7 @@ export const loadDetails = (id) => async(dispatch) => {
             screenshots: screenShots.data,
             // trailer: gameTrailer.data,
             // suggested: suggestedGames.data,
-        }
-    })
-}
+        },
+    });
+};
 
