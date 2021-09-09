@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { useDispatch } from 'react-redux';
 import { loadDetails } from '../redux/actions/detailsAction';
 import { Link } from 'react-router-dom';
+import { smallerImage } from '../util';
 
 export const Game = ({name, released, img, id}) => {
     //loading details
@@ -19,7 +20,7 @@ export const Game = ({name, released, img, id}) => {
             <Link to={`/game/${id}`}>
                 <h3>{name}</h3>
                 <p>{released}</p>
-                <img src={img} alt={name} />
+                <img src={smallerImage(img,640)} alt={name} />
             </Link>
         </StyledGame>
     );
