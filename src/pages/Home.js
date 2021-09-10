@@ -18,7 +18,7 @@ export const Home = () => {
     dispatch(loadGames());
   }, [dispatch]);
   //getting data back
-  const { popular, upcoming, newGames } = useSelector(state => state.games);
+  const { popular, upcoming, newGames, searched } = useSelector(state => state.games);
   return (
     <GameList>
       <AnimateSharedLayout type="crossfade">
@@ -27,6 +27,21 @@ export const Home = () => {
           {pathId && <GameDetail pathId={pathId}/>}
           {/* pathId is the toggle */}
         </AnimatePresence>
+        {searched.length ? (
+          <div className="searched">
+            <Games>
+              {searched.map(game => (
+                <Game 
+                  name={game.name}
+                  released={game.released}
+                  id={game.id}
+                  key={game.id}
+                  img={game.background_image}
+                />
+              ))} 
+            </Games>
+          </div>
+        ) : " " }
         {/* renders gamedetail when pathId exists */}
         <h2>Popular Games</h2> 
         <Games>

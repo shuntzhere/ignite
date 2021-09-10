@@ -43,3 +43,6 @@ export const gameScreenShotsURL = (game_id) => `${baseURL}games/${game_id}/scree
 // export const gameTrailerURL = (game_id) => `${baseURL}games/${game_id}/movies?key=345a2e9f121d4d21970e5bf081c5924e&`;
 
 // export const suggestedGamesURL = (game_id) => `${baseURL}games/${game_id}/suggested?key=345a2e9f121d4d21970e5bf081c5924e&`;
+
+export const searchGameURL = (game_name) => `${baseURL}games?search=${game_name}&page_size=9&key=345a2e9f121d4d21970e5bf081c5924e&`;
+
