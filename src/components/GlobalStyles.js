@@ -41,5 +41,9 @@ export const GlobalStyles = createGlobalStyle`
     img {
         display: block;
     }
+    input {
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+    }
 `
 
