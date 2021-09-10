@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import { smallerImage } from '../util';
 // import { useLocation } from 'react-router';
 
+import { popup } from "../animations";
+
 export const Game = ({name, released, img, id}) => {
     const updatedId = id.toString();
     //loading details
@@ -23,6 +25,7 @@ export const Game = ({name, released, img, id}) => {
     }
     return (
         <StyledGame 
+            variants={popup} initial="hidden" animate="show"
             layoutId={updatedId}
             onClick={loadDetailHandler}
         >   

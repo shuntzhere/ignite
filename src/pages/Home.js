@@ -6,6 +6,7 @@ import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
 import { loadGames } from "../redux/actions/gamesAction";
 import { GameDetail } from '../components/GameDetail';
 import { useLocation } from 'react-router-dom';
+import { fadeIn } from "../animations";
 
 export const Home = () => {
   //get the current location
@@ -20,7 +21,7 @@ export const Home = () => {
   //getting data back
   const { popular, upcoming, newGames, searched } = useSelector(state => state.games);
   return (
-    <GameList>
+    <GameList variants={fadeIn} initial="hidden" animate="show">
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>
           {/* wrapping the component that will be transitioned */}
