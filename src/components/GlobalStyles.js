@@ -45,5 +45,4 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: bold;
         font-family: 'Courier New', Courier, monospace;
     }
-`
-
+`;
