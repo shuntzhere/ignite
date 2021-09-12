@@ -1,6 +1,9 @@
 //resizing media
 
 export const smallerImage = (imagePath, size) => {
+  if (!imagePath) {
+    return;
+  }
   const image = imagePath.match(/ media\/screenshots/)
     ? imagePath.replace(
         "media/screenshots",
